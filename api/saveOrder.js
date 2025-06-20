@@ -12,10 +12,13 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: "Метод не поддерживается" });
     }
 
+    const { newOrder, userConfig } = req.body;
+
+
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Храним в переменных среды
-    const REPO_OWNER = "gpr-xirdalan";
+    const REPO_OWNER = "giperaks";
     const REPO_NAME = "order";
-    const FILE_PATH = "order.json";
+    const FILE_PATH = `order_${userConfig.branch}.json`;
 
     try {
         // **1. Получаем order.json**
@@ -28,8 +31,6 @@ export default async function handler(req, res) {
         let data = await response.json();
         let existingOrders = JSON.parse(Buffer.from(data.content, "base64").toString("utf-8"));
 
-        // **2. Добавляем новый заказ**
-        const newOrder = req.body;
         existingOrders.push(newOrder);
 
         // **3. Кодируем JSON в base64**
