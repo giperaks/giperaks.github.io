@@ -277,7 +277,7 @@ $(document).ready(function() {
             type: 'POST',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({
-              order: order,          // передаём как объект, не JSON.stringify
+              order,          // передаём как объект, не JSON.stringify
               userConfig: config
             }),
             beforeSend: () => {

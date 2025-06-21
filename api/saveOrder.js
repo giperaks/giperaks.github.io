@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 
         // **2. Добавляем новый заказ**
         // const newOrder = req.body;
-        existingOrders.push(newOrder.order);
+        existingOrders.push(newOrder);
 
         // **3. Кодируем JSON в base64**
         let updatedContent = Buffer.from(JSON.stringify(existingOrders, null, 2)).toString("base64");
