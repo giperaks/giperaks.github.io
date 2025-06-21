@@ -15,10 +15,11 @@ export default async function handler(req, res) {
     const { newOrder, userConfig } = req.body;
 
 
+
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Храним в переменных среды
     const REPO_OWNER = "giperaks";
     const REPO_NAME = "order";
-    const FILE_PATH = `order_${userConfig.branch}.json`;
+    const FILE_PATH = `order_28may.json`;
 
     try {
         // **1. Получаем order.json**
