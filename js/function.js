@@ -270,7 +270,7 @@ $(document).ready(function() {
             order.card.push(row);
         });      
 
-          strs = strs + `https://giperaks.github.io/orderView.html?orderId=${orderId}?branch=${config.branch}`;
+          strs = strs + `https://giperaks.github.io/orderView.html?orderId=${orderId}&branch=${config.branch}`;
 
           $.ajax({
             url: 'https://giperaks-github-io.vercel.app/api/saveOrder',

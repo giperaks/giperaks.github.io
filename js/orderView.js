@@ -5,9 +5,6 @@ $(document).ready(function() {
     return (count * price).toFixed(2);
   }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const orderId = urlParams.get('orderId'); 
-    const branch  = urlParams.get('branch'); 
 
     $.ajax({
         url: `https://api.github.com/repos/giperaks/order/contents/order_${branch}.json?timestamp=${Date.now()}`,
@@ -22,9 +19,10 @@ $(document).ready(function() {
             let orderList = [];
             let filterdList = [];
             let sumCard = [];
-
-           
+          
             let datas =  JSON.parse(data);
+
+            console.log(datas);
 
             // let jsonString = atob(data.content);
             // let jsonContent = JSON.parse(jsonString); // Преобразуем в объект
@@ -32,7 +30,8 @@ $(document).ready(function() {
              Object.keys(datas).map(function(objectKey, index) {
                 let row = datas[objectKey];
 
-                if(row.id == orderId) {
+
+                if(row && row.id == orderId) {
                     $.each(row.card, function(key, val) {
                         sumCard.push(parseFloat(val.productPrice) * val.count);
 
