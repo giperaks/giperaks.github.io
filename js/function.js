@@ -273,7 +273,7 @@ $(document).ready(function() {
           strs = strs + `https://giperaks.github.io/orderView.html?orderId=${orderId}?branch=${config.branch}`;
 
           $.ajax({
-            url: 'https://giperaks-github-io.vercel.app/api/saveOrder',
+            url: 'https://gpr-xirdalan-github-io.vercel.app/api/saveOrder',
             type: 'POST',
             headers: { "Content-Type": "application/json" },
             data: JSON.stringify({
