@@ -210,7 +210,7 @@ $(document).ready(function() {
             $('.cart-list').prepend(`
               <div class="cart-list-item">
                  <div class="cart-list-image">
-                  <img src="https://gpr-xirdalan.github.io/${row.imageSrc}">
+                  <img src="${row.imageSrc}">
                  </div>
 
                  <div class="cart-list-info">
@@ -290,7 +290,7 @@ $(document).ready(function() {
 
               let url = `https://wa.me/${config.phone}?text=${encodedStrs}`;
 
-              // window.location.href = url;
+              window.location.href = url;
 
               card = [];
 
@@ -373,9 +373,9 @@ $(document).ready(function() {
     $(document).on('click', '.share', function() {
       let dataName = $(this).attr('data-name');
 
-      let url = `https://gpr-xirdalan.github.io/?product_name=${dataName}`;
+      let url = `https://giperaks.github.io/${config.branch}/?product_name=${dataName}`;
       let fixedUrl = url.replace(/ /g, '20/'); 
-      let whatsappLink = `https://wa.me/994512058808?text=${encodeURIComponent(fixedUrl)}`;
+      let whatsappLink = `https://wa.me/${config.phone}?text=${encodeURIComponent(fixedUrl)}`;
 
       window.location.href = whatsappLink;
     });

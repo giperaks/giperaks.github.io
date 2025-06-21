@@ -5,9 +5,12 @@ $(document).ready(function() {
     return (count * price).toFixed(2);
   }
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get('orderId'); 
+    const branch  = urlParams.get('branch'); 
 
     $.ajax({
-        url: `https://api.github.com/repos/gpr-xirdalan/order/contents/order.json?timestamp=${Date.now()}`,
+        url: `https://api.github.com/repos/giperaks/order/contents/order_${branch}.json?timestamp=${Date.now()}`,
         method: "GET",
         headers: { "Accept": "application/vnd.github.v3.raw" },
         beforeSend: () => {
@@ -20,8 +23,7 @@ $(document).ready(function() {
             let filterdList = [];
             let sumCard = [];
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const orderId = urlParams.get('orderId');            
+           
             let datas =  JSON.parse(data);
 
             // let jsonString = atob(data.content);
