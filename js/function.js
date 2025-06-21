@@ -276,10 +276,7 @@ $(document).ready(function() {
             url: 'https://gpr-xirdalan-github-io.vercel.app/api/saveOrder',
             type: 'POST',
             headers: { "Content-Type": "application/json" },
-            data: JSON.stringify({
-              order: order,    
-              userConfig: config
-            }),
+            data: JSON.stringify(order),
             beforeSend: () => {
               $('.preloader').removeClass('hide');
             },
