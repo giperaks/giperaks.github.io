@@ -14,6 +14,8 @@ export default async function handler(req, res) {
 
     const { newOrder, userConfig } = req.body;
 
+    console.log(userConfig);
+
 
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Храним в переменных среды
     const REPO_OWNER = "giperaks";
