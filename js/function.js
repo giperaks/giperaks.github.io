@@ -276,7 +276,10 @@ $(document).ready(function() {
             url: 'https://giperaks-github-io.vercel.app/api/saveOrder',
             type: 'POST',
             headers: { "Content-Type": "application/json" },
-            data: JSON.stringify(order),
+            data: JSON.stringify({
+              order: order,          // передаём как объект, не JSON.stringify
+              userConfig: config
+            }),
             beforeSend: () => {
               $('.preloader').removeClass('hide');
             },
