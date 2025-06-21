@@ -288,7 +288,7 @@ $(document).ready(function() {
 
               let encodedStrs = encodeURIComponent(strs); 
 
-              let url = `https://wa.me/${confing.phone}?text=${encodedStrs}`;
+              let url = `https://wa.me/${config.phone}?text=${encodedStrs}`;
 
               window.location.href = url;
 
