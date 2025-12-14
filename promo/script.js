@@ -8,20 +8,26 @@ fetch('promo.json')
     
 const resultEl = document.getElementById('result');
 
-const codeReader = new ZXing.BrowserBarcodeReader();
+Dynamsoft.DBR.BarcodeScanner.createInstance()
+.then(scanner => {
+    scanner.setUIElement(document.getElementById('scanner'));
 
-codeReader.decodeFromVideoDevice(null, 'preview', (result, err) => {
-    if (result) {
-        const code = result.text;
+    scanner.onFrameRead = results => {
+        results.forEach(r => {
+            console.log(r.barcodeText, r.barcodeFormatString);
 
-        const found = data.find(p => p.barcode === code);
+            const code = result.text;
+                   const found = data.find(p => p.barcode === code);
 
-        if (found) {
-            resultEl.innerHTML = `✅ Найдено: ${found.name}`;
-            resultEl.style.color = 'green';
-        } else {
-            resultEl.innerHTML = `❌ Нет в базе: ${code}`;
-            resultEl.style.color = 'red';
-        }
-    }
+            if (found) {
+                resultEl.innerHTML = `✅ Найдено: ${found.name}`;
+                resultEl.style.color = 'green';
+            } else {
+                resultEl.innerHTML = `❌ Нет в базе: ${code}`;
+                resultEl.style.color = 'red';
+            } 
+        });
+    };
+
+    scanner.open();
 });
