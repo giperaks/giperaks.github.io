@@ -1,0 +1,16 @@
+{
+    "list": [
+        {
+            "name": "some products",
+            "barcode": 628102006787
+        },
+        {
+            "name": "some products 2",
+            "barcode": 6281020261440
+        },
+        {
+            "name": "some products 2",
+            "barcode": 829598479853
+        }          
+    ]
+}
